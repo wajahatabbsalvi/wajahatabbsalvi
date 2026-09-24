@@ -5,7 +5,7 @@
 ### Full-Stack Software Engineer • AI Systems Architect • Distributed Systems Craftsman
 
 [![GitHub](https://img.shields.io/badge/GitHub-wajahatabbsalvi-D4AF37?style=for-the-badge&logo=github&logoColor=white)](https://github.com/wajahatabbsalvi)
-[![Email](https://img.shields.io/badge/Email-wajahatabbasalvi%40gmail.com-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:codespellbinders@gmail.com)
+[![Email](https://img.shields.io/badge/Email-wajahatabbasalvi%40gmail.com-blue?style=for-the-badge&logo=gmail&logoColor=white)](mailto:wajahatabbasalvi@gmail.com)
 [![Location](https://img.shields.io/badge/Location-Punjab%2C%20Pakistan%20%7C%20PKT%20UTC%2B5-0ea5e9?style=for-the-badge&logo=googlemaps&logoColor=white)](#)
 [![Status](https://img.shields.io/badge/Status-Available%20for%20High--Impact%20Roles-22c55e?style=for-the-badge)](#)
 
