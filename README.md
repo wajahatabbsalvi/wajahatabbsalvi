@@ -103,7 +103,7 @@
 
 <div align="center">
 
-[![Email](https://img.shields.io/badge/codespellbinders%40gmail.com-0078D4?style=for-the-badge&logo=gmail&logoColor=white)](mailto:codespellbinders@gmail.com)
+[![Email](https://img.shields.io/badge/codespellbinders%40gmail.com-0078D4?style=for-the-badge&logo=gmail&logoColor=white)](mailto:wajahatabbasalvi@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/wajahatabbsalvi)
 
 <br/>
