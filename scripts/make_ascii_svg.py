@@ -1,15 +1,16 @@
 """
 make_ascii_svg.py — Convert source-prepped.png into an animated ASCII art SVG.
-Generates hxni-ascii.svg with gold monospace typography inside a terminal card.
+Generates wajahat-ascii.svg with gold monospace typography inside a terminal card.
 """
 import os
 import sys
+import xml.etree.ElementTree as ET
 from pathlib import Path
 from PIL import Image
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-# ASCII brightness ramp (dark → bright)
+# ASCII brightness ramp (dark -> bright)
 ASCII_RAMP = " .`:-=+*cs#%@"
 
 # Configuration
@@ -99,7 +100,7 @@ def main():
 
 <!-- Terminal Title -->
 <text x="{content_w / 2 + 2}" y="22" fill="#888" font-family="'SF Mono','Fira Code','Cascadia Code',monospace"
-      font-size="9" text-anchor="middle">aqsam-husnain — ascii portrait</text>
+      font-size="9" text-anchor="middle">wajahat-abbas — ascii portrait</text>
 ''')
 
     # ASCII text lines
@@ -118,8 +119,18 @@ def main():
 
     svg_parts.append("</svg>")
 
+    svg_content = "\n".join(svg_parts)
+
+    # Validate XML
+    try:
+        ET.fromstring(svg_content)
+        print("✅ Strict XML validation passed for wajahat-ascii.svg")
+    except Exception as e:
+        print(f"❌ XML validation failed: {e}")
+        sys.exit(1)
+
     out_path = root / "wajahat-ascii.svg"
-    out_path.write_text("\n".join(svg_parts), encoding="utf-8")
+    out_path.write_text(svg_content, encoding="utf-8")
     print(f"✅ Generated {out_path} ({num_lines} lines, {svg_w:.0f}x{svg_h:.0f})")
 
 

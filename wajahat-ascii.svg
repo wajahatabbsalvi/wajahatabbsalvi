@@ -23,7 +23,7 @@
 
 <!-- Terminal Title -->
 <text x="198.0" y="22" fill="#888" font-family="'SF Mono','Fira Code','Cascadia Code',monospace"
-      font-size="9" text-anchor="middle">aqsam-husnain — ascii portrait</text>
+      font-size="9" text-anchor="middle">wajahat-abbas — ascii portrait</text>
 
 <text class="ascii-line" x="16" y="56.2" fill="#D4AF37" font-family="'SF Mono','Fira Code','Cascadia Code',monospace" font-size="5.5" style="animation-delay:0.015s" xml:space="preserve">                                                    ****</text>
 <text class="ascii-line" x="16" y="62.4" fill="#D4AF37" font-family="'SF Mono','Fira Code','Cascadia Code',monospace" font-size="5.5" style="animation-delay:0.030s" xml:space="preserve">                                               c**++==---+++**</text>

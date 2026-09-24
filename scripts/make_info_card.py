@@ -1,8 +1,10 @@
 """
 make_info_card.py — Generate a neofetch-style terminal info card SVG for Wajahat Abbas.
-Generates info-card.svg with system info, tech stack, and social links.
+Ensures 100% strict XML validity (properly escaped entities &amp;, &lt;, &gt;).
 """
 import sys
+import html
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding='utf-8')
@@ -19,14 +21,14 @@ LINE_H = 25
 PAD_X = 24
 PAD_Y = 55
 CARD_W = 490
-SEPARATOR = "—" * 36
+SEPARATOR = "------------------------------------"
 
 INFO_LINES = [
     ("OS", "Full-Stack & AI Systems Architect v3.2"),
     ("Host", "Wajahat Abbas"),
     ("Role", "Software Engineer · 3+ Years Experience"),
-    ("Location", "Punjab, Pakistan 🇵🇰 (PKT UTC+5)"),
-    ("Status", "Available for High-Impact Roles ⚡"),
+    ("Location", "Punjab, Pakistan (PKT UTC+5)"),
+    ("Status", "Available for High-Impact Roles"),
     ("", SEPARATOR),
     ("Frontend", "React · Next.js · TypeScript · Tailwind · Redux"),
     ("Backend", "Python · FastAPI · Flask · Node.js · Express · Go"),
@@ -38,7 +40,7 @@ INFO_LINES = [
     ("GitHub", "github.com/wajahatabbsalvi"),
     ("Email", "codespellbinders@gmail.com"),
     ("", SEPARATOR),
-    ("", "🚀 Architecting distributed systems & autonomous AI agents."),
+    ("", "Architecting distributed systems & autonomous AI agents."),
 ]
 
 
@@ -79,35 +81,45 @@ def main():
         y = PAD_Y + i * LINE_H
         delay = 0.4 + i * 0.06
 
+        safe_val = html.escape(val, quote=True)
+        safe_key = html.escape(key, quote=True)
+
         if key == "" and val == SEPARATOR:
-            # Separator line
             svg.append(
                 f'<text class="info-line" x="{PAD_X}" y="{y}" fill="{MUTED}" '
                 f'font-family="{FONT}" font-size="{FONT_SIZE}" '
-                f'style="animation-delay:{delay:.2f}s" xml:space="preserve">{val}</text>'
+                f'style="animation-delay:{delay:.2f}s" xml:space="preserve">{safe_val}</text>'
             )
         elif key == "":
-            # Quote / standalone line
             svg.append(
                 f'<text class="info-line" x="{PAD_X}" y="{y}" fill="{SILVER}" '
                 f'font-family="{FONT}" font-size="{FONT_SIZE}" '
-                f'style="animation-delay:{delay:.2f}s">{val}</text>'
+                f'style="animation-delay:{delay:.2f}s">{safe_val}</text>'
             )
         else:
-            # Key: Value pair
             svg.append(
                 f'<text class="info-line" x="{PAD_X}" y="{y}" font-family="{FONT}" '
                 f'font-size="{FONT_SIZE}" style="animation-delay:{delay:.2f}s">'
-                f'<tspan fill="{GOLD}">{key}</tspan>'
+                f'<tspan fill="{GOLD}">{safe_key}</tspan>'
                 f'<tspan fill="{MUTED}"> ~ </tspan>'
-                f'<tspan fill="{SILVER}">{val}</tspan>'
+                f'<tspan fill="{SILVER}">{safe_val}</tspan>'
                 f'</text>'
             )
 
     svg.append("</svg>")
 
+    svg_content = "\n".join(svg)
+
+    # Strict XML Validation
+    try:
+        ET.fromstring(svg_content)
+        print("✅ Strict XML validation passed for info-card.svg")
+    except Exception as e:
+        print(f"❌ XML validation failed: {e}")
+        sys.exit(1)
+
     out = root / "info-card.svg"
-    out.write_text("\n".join(svg), encoding="utf-8")
+    out.write_text(svg_content, encoding="utf-8")
     print(f"✅ Generated {out} ({num_lines} lines, {CARD_W}x{card_h})")
 
 

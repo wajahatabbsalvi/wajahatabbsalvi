@@ -30,10 +30,10 @@
 <table align="center" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td align="center" valign="middle">
-      <img src="./wajahat-ascii.svg" width="390" alt="Wajahat Abbas ASCII Portrait" />
+      <img src="./wajahat-ascii.svg?v=2" width="390" alt="Wajahat Abbas ASCII Portrait" />
     </td>
     <td align="center" valign="middle">
-      <img src="./info-card.svg" width="470" alt="Terminal Info Card" />
+      <img src="./info-card.svg?v=2" width="470" alt="Terminal Info Card" />
     </td>
   </tr>
 </table>
